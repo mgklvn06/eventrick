@@ -78,12 +78,6 @@ const Event = () => {
       >
         Explore Events
       </a>
-      <a
-        href="/signup"
-        className="inline-block border border-purple-900 text-purple-400 hover:bg-purple-400 hover:text-white px-6 py-3 rounded-md text-lg font-medium transition"
-      >
-        Sign up for free
-      </a>
     </div>
   </div>
 </div>
@@ -197,7 +191,9 @@ const Event = () => {
         <h2 className="text-xl font-extrabold">Festivals</h2>
       </div>
     </div>
-    <button className="mt-20 bg-purple-900 hover:bg-purple-950 text-white p-4 font-bold rounded-lg text-lg">Browse events now</button>
+    <a href="/events">
+      <button className="mt-20 bg-purple-900 hover:bg-purple-950 text-white p-4 font-bold rounded-lg text-lg">Browse events now</button>
+    </a>
   </div>
 </div>
 
