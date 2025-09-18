@@ -52,7 +52,6 @@ const ManageEvents = () => {
 
   return (
     <div className="container mx-auto px-4 py-12 min-h-screen text-gray-100">
-      {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-10">
         <div>
           <h1 className="text-4xl font-extrabold text-white drop-shadow-[2px_2px_4px_rgba(128,0,128,0.7)] leading-tight">
@@ -70,7 +69,6 @@ const ManageEvents = () => {
         </Link>
       </div>
 
-      {/* Search */}
       <div className="mb-8">
         <input
           placeholder="Search events..."
@@ -80,7 +78,6 @@ const ManageEvents = () => {
         />
       </div>
 
-      {/* Event Cards */}
       {filteredEvents.length === 0 ? (
         <div className="text-center py-16 bg-gray-800/50 rounded-2xl shadow-lg border border-purple-800">
           <h3 className="text-xl font-semibold text-gray-200 mb-2">
