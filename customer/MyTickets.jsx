@@ -1,13 +1,9 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
 
 export default function MyTickets() {
   const [tickets, setTickets] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const ticketRefs = useRef({});
 
   useEffect(() => {
     const fetchTickets = async () => {
@@ -46,22 +42,6 @@ export default function MyTickets() {
       minute: "2-digit",
       hour12: true,
     });
-
-  const downloadTicket = async (ticketId) => {
-    const element = ticketRefs.current[ticketId];
-    if (!element) return;
-
-    const canvas = await html2canvas(element, { scale: 2 });
-    const imgData = canvas.toDataURL("image/png");
-
-    const pdf = new jsPDF("p", "mm", "a4");
-    const imgProps = pdf.getImageProperties(imgData);
-    const pdfWidth = pdf.internal.pageSize.getWidth();
-    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-
-    pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-    pdf.save(`ticket-${ticketId}.pdf`);
-  };
 
   if (loading) {
     return (
@@ -109,7 +89,6 @@ export default function MyTickets() {
             return (
               <div
                 key={ticket._id}
-                ref={(el) => (ticketRefs.current[ticket._id] = el)}
                 className="bg-gray-900 border border-purple-800 shadow-lg rounded-2xl overflow-hidden relative"
               >
                 <div className="p-6">
@@ -140,7 +119,6 @@ export default function MyTickets() {
                   </div>
                 </div>
 
-                {/* perforated edge effect */}
                 <div className="relative border-t border-dashed border-gray-700">
                   <span className="absolute -left-3 -top-3 h-6 w-6 bg-gray-900 border border-gray-700 rounded-full"></span>
                   <span className="absolute -right-3 -top-3 h-6 w-6 bg-gray-900 border border-gray-700 rounded-full"></span>
@@ -172,20 +150,12 @@ export default function MyTickets() {
                   <span className="text-lg font-bold text-purple-400">
                     KES {ticket.totalPrice}
                   </span>
-                  <div className="flex gap-2">
-                    <Link
-                      to={`/events/${event._id}`}
-                      className="text-sm px-3 py-1 border border-purple-700 rounded text-purple-300 hover:bg-purple-700/30"
-                    >
-                      View Event
-                    </Link>
-                    <button
-                      onClick={() => downloadTicket(ticket._id)}
-                      className="text-sm px-3 py-1 border border-purple-700 rounded bg-purple-600 text-white hover:bg-purple-500"
-                    >
-                      Download
-                    </button>
-                  </div>
+                  <Link
+                    to={`/events/${event._id}`}
+                    className="text-sm px-3 py-1 border border-purple-700 rounded text-purple-300 hover:bg-purple-700/30"
+                  >
+                    View Event
+                  </Link>
                 </div>
               </div>
             );

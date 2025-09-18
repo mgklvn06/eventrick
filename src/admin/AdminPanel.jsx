@@ -163,7 +163,6 @@ const AdminPanel = () => {
         </p>
       </div>
 
-      {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {[
           { label: "Total Users", value: users.length, color: "text-purple-400" },
@@ -181,7 +180,6 @@ const AdminPanel = () => {
         ))}
       </div>
 
-      {/* Tabs */}
       <div className="mb-6 flex space-x-4 border-b border-gray-700">
         {["users", "events", "tickets"].map((tab) => (
           <button
@@ -198,7 +196,6 @@ const AdminPanel = () => {
         ))}
       </div>
 
-      {/* Users Tab */}
       {activeTab === "users" && (
         <section>
           <div className="flex justify-between items-center mb-4">
@@ -257,7 +254,6 @@ const AdminPanel = () => {
         </section>
       )}
 
-      {/* Events Tab */}
       {activeTab === "events" && (
         <section>
           <div className="flex justify-between items-center mb-4">
@@ -309,7 +305,6 @@ const AdminPanel = () => {
         </section>
       )}
 
-      {/* Tickets Tab */}
       {activeTab === "tickets" && (
         <section>
           <h2 className="text-xl text-purple-400 font-semibold mb-4">

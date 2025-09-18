@@ -80,7 +80,6 @@ function Event() {
       className="py-16 px-4 min-h-screen"
     >
       <div className="container max-w-screen-2xl mx-auto">
-        {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl text-white drop-shadow-[2px_2px_4px_rgba(128,0,128,0.7)] leading-tight font-extrabold">
             Upcoming Events
@@ -90,7 +89,6 @@ function Event() {
           </p>
         </div>
 
-        {/* Search & Filter */}
         <div className="flex flex-col md:flex-row gap-4 mb-8 max-w-4xl mx-auto">
           <div className="relative flex-1">
             <input
@@ -130,7 +128,6 @@ function Event() {
           </select>
         </div>
 
-        {/* Event Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {filteredEvents.length > 0 ? (
             filteredEvents.map((event) => (
@@ -143,7 +140,6 @@ function Event() {
           )}
         </div>
 
-        {/* Load More */}
         <div className="text-center">
           <button className="px-6 py-3 rounded-lg text-white font-semibold bg-purple-700 hover:bg-purple-600 hover:shadow-lg hover:shadow-purple-500/30 transition-colors duration-300">
             Load More Events
@@ -151,7 +147,6 @@ function Event() {
         </div>
       </div>
 
-      {/* Mpesa Modal */}
       {showMpesa && selectedEvent && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
           <div className="w-full max-w-lg bg-gray-900 rounded-lg shadow-2xl p-6 relative border border-purple-700">

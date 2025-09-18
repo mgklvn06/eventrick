@@ -92,7 +92,6 @@ export default function CustomerProfile() {
     <div className="max-w-xl mx-auto p-4 space-y-6">
       <h1 className="text-3xl font-bold text-white drop-shadow-[2px_2px_4px_rgba(128,0,128,0.7)] leading-tight">Profile Settings</h1>
 
-      {/* Account Info */}
       <div className="bg-gray-900 p-4 rounded-lg shadow space-y-2 text-gray-200 text-sm">
         <h2 className="font-semibold">Account Information</h2>
         <div className="flex justify-between">
@@ -111,7 +110,6 @@ export default function CustomerProfile() {
         </div>
       </div>
 
-      {/* Update Profile */}
       <div className="bg-gray-900 p-4 rounded-lg shadow space-y-2 text-gray-200 text-sm">
         <h2 className="font-semibold">Update Profile</h2>
         <form onSubmit={handleUpdateProfile} className="space-y-2">
@@ -121,7 +119,6 @@ export default function CustomerProfile() {
         </form>
       </div>
 
-      {/* Change Password */}
       <div className="bg-gray-900 p-4 rounded-lg shadow space-y-2 text-gray-200 text-sm">
         <h2 className="font-semibold">Change Password</h2>
         <form onSubmit={handleChangePassword} className="space-y-2">
