@@ -51,38 +51,42 @@ const ManageEvents = () => {
     : [];
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-12 min-h-screen text-gray-100">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-10">
         <div>
-          <h1 className="text-3xl font-bold mb-2">Manage Events</h1>
-          <p className="text-gray-500">Create and manage your events</p>
+          <h1 className="text-4xl font-extrabold text-white drop-shadow-[2px_2px_4px_rgba(128,0,128,0.7)] leading-tight">
+            Manage Events
+          </h1>
+          <p className="text-gray-400 text-lg">
+            Create and manage your events
+          </p>
         </div>
         <Link
           to="/createEvent"
-          className="inline-flex items-center px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium"
+          className="inline-flex items-center px-5 py-2 rounded-md bg-purple-600 hover:bg-purple-500 text-white font-semibold shadow-lg"
         >
           + Create Event
         </Link>
       </div>
 
       {/* Search */}
-      <div className="mb-6">
+      <div className="mb-8">
         <input
           placeholder="Search events..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full max-w-sm pl-3 pr-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-600"
+          className="w-full max-w-sm pl-4 pr-3 py-2 text-lg text-gray-100 bg-gray-800 border border-purple-700 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600"
         />
       </div>
 
-      {/* Events List */}
+      {/* Event Cards */}
       {filteredEvents.length === 0 ? (
-        <div className="text-center py-12">
-          <h3 className="text-lg font-semibold mb-2">
+        <div className="text-center py-16 bg-gray-800/50 rounded-2xl shadow-lg border border-purple-800">
+          <h3 className="text-xl font-semibold text-gray-200 mb-2">
             {searchTerm ? "No events found" : "No events yet"}
           </h3>
-          <p className="text-gray-500 mb-6">
+          <p className="text-gray-400 mb-6">
             {searchTerm
               ? "Try adjusting your search criteria."
               : "Create your first event to get started!"}
@@ -90,7 +94,7 @@ const ManageEvents = () => {
           {!searchTerm && (
             <Link
               to="/createEvent"
-              className="inline-flex items-center px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-700 text-white"
+              className="inline-flex items-center px-5 py-2 rounded-md bg-purple-600 hover:bg-purple-500 text-white font-semibold shadow-lg"
             >
               + Create Event
             </Link>
@@ -101,33 +105,35 @@ const ManageEvents = () => {
           {filteredEvents.map((event) => (
             <div
               key={event._id}
-              className="bg-white rounded-lg shadow p-4 flex flex-col justify-between"
+              className="bg-gray-900 border border-purple-800 rounded-lg shadow-md p-5 flex flex-col justify-between hover:shadow-purple-900/50 transition"
             >
               <div>
-                <h2 className="text-lg font-bold">{event.title}</h2>
-                <p className="text-gray-500 text-sm">{event.description}</p>
-                <p className="mt-2 text-sm">
-                  {event.date} at {event.time}
+                <h2 className="text-lg text-purple-300 font-bold">
+                  {event.title}
+                </h2>
+                <p className="text-gray-400 text-sm mt-1">
+                  {event.description}
                 </p>
-                <p className="text-sm text-gray-500">{event.location}</p>
-                <p className="mt-1 text-sm font-medium text-blue-600">
-                  KES{event.price}
+                <p className="mt-2 text-sm text-gray-400">
+                  📅 {event.date} at {event.time}
+                </p>
+                <p className="text-sm text-gray-400">📍 {event.location}</p>
+                <p className="mt-2 text-sm font-bold text-purple-400">
+                  💵 KES {event.price}
                 </p>
               </div>
 
               <div className="flex gap-2 mt-4">
-                {/* Edit event */}
                 <Link
                   to={`/EditEvent/${event._id}`}
-                  className="flex-1 px-3 py-2 border rounded-md text-sm text-center hover:bg-gray-50"
+                  className="flex-1 px-3 py-2 border border-purple-700 rounded-md text-sm text-purple-300 hover:bg-purple-700/30 transition"
                 >
                   Edit
                 </Link>
-                {/* Delete event */}
                 <button
                   onClick={() => handleDeleteEvent(event._id)}
                   disabled={deletingId === event._id}
-                  className="px-3 py-2 border rounded-md text-sm text-red-600 hover:bg-red-50"
+                  className="px-3 py-2 border border-red-700 rounded-md text-sm text-red-400 hover:bg-red-900/40 transition"
                 >
                   {deletingId === event._id ? "Deleting..." : "Delete"}
                 </button>

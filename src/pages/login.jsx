@@ -54,7 +54,7 @@ const Login = () => {
         window.dispatchEvent(new Event('user-changed'));
       }
 
-      navigate('/events');
+      navigate('/');
     } catch (err) {
       console.error('Login error:', err);
       setError(err.message || 'Login failed');
@@ -62,34 +62,38 @@ const Login = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
-        {error && <div className="text-red-600 mb-4 text-center">{error}</div>}
+    <section className="min-h-screen flex items-center justify-center">
+      <div className="w-full max-w-md bg-gray-900 p-8 rounded-lg shadow-lg">
+        <h2 className="text-3xl font-extrabold text-white drop-shadow-[2px_2px_4px_rgba(128,0,128,0.7)] leading-tight">Welcome back</h2>
+        <p className="text-gray-400 mb-4 font-bold">Please enter your credentials to continue</p>
+        {error && <div className="text-red-800 mb-4 text-center">{error}</div>}
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block mb-1">Email:</label>
+            <label className="block mb-1 text-white">Email:</label>
             <input
               type="email"
               value={email}
+              placeholder='Enter your email'
               onChange={e => setEmail(e.target.value)}
               required
-              className="w-full px-4 py-2 border border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
+              className="w-full px-4 py-2 text-white border border-purple-900 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-950"
             />
           </div>
           <div className="mb-6">
-            <label className="block mb-1">Password:</label>
+            <label className="block mb-1 text-white">Password:</label>
             <input
               type="password"
               value={password}
+              placeholder='Enter your password'
               onChange={e => setPassword(e.target.value)}
               required
-              className="w-full px-4 py-2 border border-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
+              className="w-full px-4 py-2 text-white border border-purple-900 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-950"
             />
           </div>
-          <button className="bg-blue-600 text-white px-4 py-2 rounded-md text-xl font-medium hover:bg-blue-700 w-full" type="submit">
+          <button className="bg-purple-900 text-white px-4 py-2 rounded-md text-xl font-medium hover:bg-purple-950 w-full" type="submit">
             Login
           </button>
+          <h2 className='mt-4 text-white'>Don't have an account? <a href="/signup" className="text-purple-900 hover:underline font-extrabold">Sign up</a></h2>
         </form>
       </div>
     </section>

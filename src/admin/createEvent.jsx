@@ -45,9 +45,9 @@ const CreateEvent = () => {
       });
 
       const data = await res.json();
-      if (!res.ok) throw new Error(data.message || "❌ Could not create event.");
+      if (!res.ok) throw new Error(data.message || " Could not create event.");
 
-      setSuccess("✅ Event created successfully!");
+      setSuccess(" Event created successfully!");
       setFormData({
         title: "",
         organizer: "",
@@ -69,27 +69,23 @@ const CreateEvent = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-bold mb-2">Create New Event</h1>
-          <p className="text-gray-500">Fill out the details below to publish your event</p>
+          <h1 className="text-5xl font-bold text-white drop-shadow-[2px_2px_4px_rgba(128,0,128,0.7)] leading-tight">Create New Event</h1>
+          <p className="text-gray-400 font-bold text-lg">Fill out the details below to publish your event</p>
         </div>
         <Link
           to="/manageEvents"
-          className="inline-flex items-center px-4 py-2 rounded-md bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium"
+          className="inline-flex items-center px-4 py-2 rounded-md bg-purple-900 hover:bg-purple-950 text-white text-sm font-bold"
         >
           ← Back to Events
         </Link>
       </div>
 
-      {/* Alerts */}
       {error && <p className="text-red-600 mb-4">{error}</p>}
       {success && <p className="text-green-600 mb-4">{success}</p>}
 
-      {/* Form */}
-      <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow space-y-6">
-        {/* Title + Organizer */}
+      <form onSubmit={handleSubmit} className="bg-gray-900 p-6 rounded-lg shadow space-y-6 text-gray-400 font-bold">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <input
             type="text"
@@ -109,7 +105,6 @@ const CreateEvent = () => {
           />
         </div>
 
-        {/* Description */}
         <textarea
           placeholder="Description"
           value={formData.description}
@@ -118,7 +113,6 @@ const CreateEvent = () => {
           className="border rounded-md px-3 py-2 w-full"
         />
 
-        {/* Date, Time, Category */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <input
             type="date"
@@ -151,7 +145,6 @@ const CreateEvent = () => {
           </select>
         </div>
 
-        {/* Location */}
         <input
           type="text"
           placeholder="Location"
@@ -161,7 +154,6 @@ const CreateEvent = () => {
           className="border rounded-md px-3 py-2 w-full"
         />
 
-        {/* Price + Tickets */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <input
             type="number"
@@ -181,7 +173,6 @@ const CreateEvent = () => {
           />
         </div>
 
-        {/* Image */}
         <input
           type="text"
           placeholder="/public/images/example.jpg"
@@ -198,7 +189,6 @@ const CreateEvent = () => {
           />
         )}
 
-        {/* Submit */}
         <button
           type="submit"
           disabled={loading}

@@ -78,9 +78,9 @@ const EditEvent = () => {
       });
 
       const data = await res.json();
-      if (!res.ok) throw new Error(data.message || "❌ Could not update event.");
+      if (!res.ok) throw new Error(data.message || " Could not update event.");
 
-      setSuccess("✅ Event updated successfully!");
+      setSuccess(" Event updated successfully!");
       setTimeout(() => navigate("/manageEvents"), 1500);
     } catch (err) {
       setError(err.message);
@@ -91,21 +91,19 @@ const EditEvent = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-bold mb-2">Edit Event</h1>
-          <p className="text-gray-500">Update your event details below</p>
+          <h1 className="text-5xl text-white drop-shadow-[2px_2px_4px_rgba(128,0,128,0.7)] leading-tight font-bold">Edit Event</h1>
+          <p className="text-white text-2xl font-bold">Update your event details below</p>
         </div>
         <Link
           to="/manageEvents"
-          className="inline-flex items-center px-4 py-2 rounded-md bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium"
+          className="inline-flex items-center px-4 py-2 rounded-md bg-purple-900 hover:bg-purple-950 text-white text-sm font-medium"
         >
           ← Back to Events
         </Link>
       </div>
 
-      {/* Alerts */}
       {error && (
         <p className="text-red-600 mb-4 border border-red-300 p-2 rounded bg-red-50">
           {error}
@@ -117,15 +115,13 @@ const EditEvent = () => {
         </p>
       )}
 
-      {/* Form */}
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-6 rounded-lg shadow-md space-y-6 max-w-3xl mx-auto"
+        className="bg-gray-900 p-6 rounded-lg shadow-md space-y-6 max-w-3xl mx-auto text-gray-400 font-bold"
       >
-        {/* Title + Organizer */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-extrabold text-white">
               Event Title
             </label>
             <input
@@ -137,7 +133,7 @@ const EditEvent = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-white">
               Organizer
             </label>
             <input
@@ -150,9 +146,8 @@ const EditEvent = () => {
           </div>
         </div>
 
-        {/* Description */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-white">
             Description
           </label>
           <textarea
@@ -164,10 +159,9 @@ const EditEvent = () => {
           />
         </div>
 
-        {/* Date, Time, Category */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700">Date</label>
+            <label className="block text-sm font-medium text-white">Date</label>
             <input
               type="date"
               value={formData.date}
@@ -177,7 +171,7 @@ const EditEvent = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Time</label>
+            <label className="block text-sm font-medium text-white">Time</label>
             <input
               type="time"
               value={formData.time}
@@ -187,7 +181,7 @@ const EditEvent = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Category</label>
+            <label className="block text-sm font-medium text-white">Category</label>
             <select
               value={formData.category}
               onChange={(e) => handleChange("category", e.target.value)}
@@ -204,9 +198,8 @@ const EditEvent = () => {
           </div>
         </div>
 
-        {/* Location */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">Location</label>
+          <label className="block text-sm font-medium text-white">Location</label>
           <input
             type="text"
             value={formData.location}
@@ -216,10 +209,9 @@ const EditEvent = () => {
           />
         </div>
 
-        {/* Price + Tickets */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700">Price ($)</label>
+            <label className="block text-sm font-medium text-white">Price ($)</label>
             <input
               type="number"
               value={formData.price}
@@ -229,7 +221,7 @@ const EditEvent = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-white">
               Maximum Tickets
             </label>
             <input
@@ -242,9 +234,8 @@ const EditEvent = () => {
           </div>
         </div>
 
-        {/* Image */}
         <div>
-          <label className="block text-sm font-medium text-gray-700">Image URL</label>
+          <label className="block text-sm font-medium text-white">Image URL</label>
           <input
             type="text"
             value={formData.imageUrl}
@@ -261,11 +252,10 @@ const EditEvent = () => {
           )}
         </div>
 
-        {/* Submit */}
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+          className="w-full bg-purple-900 text-white px-4 py-2 rounded-md hover:bg-purple-950"
         >
           {loading ? "Updating..." : "Update Event"}
         </button>

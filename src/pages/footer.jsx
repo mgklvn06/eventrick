@@ -7,15 +7,15 @@ const Footer = () => {
                 <div className="flex flex-col md:flex-row justify-between items-start">
                     <div className="mb-6 md:mb-0">
                         <h2 className="text-2xl font-bold">Eventify</h2>
-                        <p className="text-lg text-blue-400">
+                        <p className="text-lg text-purple-900 font-extrabold">
                             Bringing people together<br /> through unforgettable events.
                         </p>
                     </div>
                     <div className="mt-4 md:mt-0">
                         <h2 className="text-xl text-center">Connect:</h2>
-                        <div className="flex flex-col items-center mt-4 text-blue-400">
+                        <div className="flex flex-col items-center mt-4 text-purple-900 font-extrabold">
                             <a href="#" className="text-lg mx-2 hover:underline">
-                                Facebook
+                                Tiktok
                             </a>
                             <a href="#" className="text-lg mx-2 hover:underline">
                                 Twitter
@@ -28,21 +28,21 @@ const Footer = () => {
                     <div className="mt-4 md:mt-0">
                         <p className="text-xl text-center mb-4">
                             Contact us:<br />
-                            <a href="mailto:info@eventify.com" className="text-blue-400 hover:underline">
+                            <a href="mailto:info@eventify.com" className="text-purple-900 font-extrabold hover:underline">
                                 info@eventify.com
                             </a>
                         </p>
                     </div>
                     <div className="mt-4 md:mt-0">
                         <h2 className="text-xl">Newsletter</h2>
-                        <p className="text-blue-400">Subscribe to our newsletter<br /> for updates on future events:</p>
+                        <p className="text-purple-900 font-extrabold">Subscribe to our newsletter<br /> for updates on future events:</p>
                         <div className="flex flex-col md:flex-row items-center mt-2">
                             <input
                                 type="email"
                                 placeholder="Your email"
-                                className="w-full md:w-64 p-2 border border-blue-600 rounded mb-2 md:mb-0"
+                                className="w-full md:w-64 p-2 border border-purple-900 rounded mb-2 md:mb-0"
                             />
-                            <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+                            <button type="submit" className="bg-purple-900 hover:bg-purple-950 text-white px-4 py-2 rounded">
                                 Subscribe
                             </button>
                         </div>
